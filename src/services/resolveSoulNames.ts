@@ -10,8 +10,8 @@ import { providers, Wallet } from "ethers";
  * @param soulName - soulName to be resolved to address
  * */ 
 export const resolveSoulName= async(soulName:string,providerUrl:string,masaSigner:string)=>{
-  const provider = new providers.JsonRpcProvider("https://alfajores-forno.celo-testnet.org");
-  const wallet = new Wallet(`0x8f69f852ef8b1c292e01bf21f51021e1a5eb526fca121fdcc411ecf3bb66b0fb`, provider);
+  const provider = new providers.JsonRpcProvider(providerUrl);
+  const wallet = new Wallet(masaSigner, provider);
 
   const masa = new Masa({
     signer: wallet,
